@@ -1,12 +1,12 @@
 
-A mojo.js plugin.
+A mojo.js plugin to add an MQTT helper.
 
 ```js
 import mojo from '@mojojs/core';
-import myPlugin from 'mojo-plugin-mqtt-helper';
+import mqttPlugin from 'mojo-plugin-mqtt-helper';
 
 const app = mojo();
-app.plugin(myPlugin);
+app.plugin(mqttPlugin);
 
 app.get('/', async ctx => {
   await ctx.render({text: 'Hello World!'});
