@@ -14,10 +14,15 @@ import mqttPlugin from 'mojo-plugin-mqtt-helper';
 const app = mojo();
 app.plugin(mqttPlugin);
 
-app.get('/', async ctx => {
-  await ctx.render({text: 'Hello World!'});
-});
-
+  app.get('/', async ctx => {
+    const client = await ctx.mqttClient('mqtt://test.mosquitto.org');
+    await client.subscribe('mojojs/test/#');
+    client.on('message', async (topic, message) => {
+      await ctx.render({text: `Received message on topic ${topic}: ${message}`});
+      await client.end();
+    });
+    await client.publish('mojojs/test/hello/Channel', 'Hello world!');
+  });
 app.start();
 ```
 
