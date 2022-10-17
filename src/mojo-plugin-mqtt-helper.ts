@@ -7,13 +7,13 @@ import {connect} from 'async-mqtt';
  * @param app
  */
 export default function mqttPlugin(app: MojoApp) {
-  app.addHelper('mqttClient', (_ctx, brokerUrl: any, opts: IClientOptions) => {
+  app.addHelper('mqttClient', (_ctx, brokerUrl?: any, opts?: IClientOptions) => {
     return connect(brokerUrl, opts);
   });
 }
 
 declare module '@mojojs/core/lib/types' {
   interface MojoContext {
-    mqttClient: () => AsyncMqttClient;
+    mqttClient: (brokerUrl?: any, opts?: IClientOptions) => AsyncMqttClient;
   }
 }
