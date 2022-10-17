@@ -13,3 +13,7 @@ Add basic test.
 
 Add a simple connection, subscribe and publish test.
 Add workflows for github actions CI. (very basic, uses free mqtt://test.mosquitto.org service)
+
+## v0.0.4 (2022-10-17)
+
+Add coverage github action, plus badges on README.
