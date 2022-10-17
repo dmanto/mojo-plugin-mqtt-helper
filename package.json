@@ -1,7 +1,7 @@
 {
   "name": "mojo-plugin-mqtt-helper",
-  "version": "0.0.1",
-  "description": "Adds an MQTT helper to mojo.js",
+  "version": "0.0.2",
+  "description": "Adds an MQTT client helper to mojo.js",
   "keywords": [
     "mojojs",
     "mqtt"

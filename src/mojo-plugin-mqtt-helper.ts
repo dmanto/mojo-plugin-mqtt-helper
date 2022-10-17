@@ -1,9 +1,19 @@
-import type {MojoApp} from '@mojojs/core/lib/types';
-import type {IClientOptions,AsyncMqttClient} from 'async-mqtt';
+import type {MojoApp, ConfigOptions} from '@mojojs/core/lib/types';
+import type {IClientOptions, AsyncMqttClient} from 'async-mqtt';
 import {connect} from 'async-mqtt';
-export default function mqttPlugin(app: MojoApp, url: string, options: IClientOptions) {
+interface MqttOptions extends ConfigOptions {
+  brokerUrl?: string;
+  mqttOptions?: IClientOptions;
+}
+/**
+ * mqttPlugin.
+ * @param app
+ * @param options
+ */
+export default function mqttPlugin(app: MojoApp, options: MqttOptions) {
   app.addHelper('mqttClient', () => {
-    return connect(url, options);
+    const brokerUrl = options.brokerUrl ?? 'mqtt://localhost:1883';
+    return connect(brokerUrl, options.mqttOptions);
   });
 }
 
