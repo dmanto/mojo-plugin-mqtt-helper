@@ -1,10 +1,11 @@
 {
   "name": "mojo-plugin-mqtt-helper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Adds an MQTT client helper to mojo.js",
   "keywords": [
     "mojojs",
-    "mqtt"
+    "mqtt",
+    "iot"
   ],
   "type": "module",
   "author": "Daniel Mantovani <dmanto@cpan.org>",
