@@ -1,4 +1,4 @@
-name: Windows
+name: ⊞
 on: [push, pull_request]
 jobs:
   test:

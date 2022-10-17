@@ -1,4 +1,4 @@
-name: macOS
+name: 
 on: [push, pull_request]
 jobs:
   test:
