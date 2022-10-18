@@ -7,14 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- First release.
-- Add basic test.
-- Add a simple connection, subscribe and publish test.
-- Add workflows for github actions CI. (very basic, uses free mqtt://test.mosquitto.org service)
-- Add coverage github action, plus badges on README.
-- Use async connection (connectAsync) from async-mqtt.
-- Fix npm version link to badge.
-
 ### Added
 
-- Changelog
+- First release.
+- Basic test added.
+- Simple connection, subscribe and publish test added.
+- Workflows for github actions CI. (very basic, uses free mqtt://test.mosquitto.org service) added.
+- Coverage, badges on README added.
+- Use async connection (connectAsync) from async-mqtt.
+- Fix npm version link to badge.
