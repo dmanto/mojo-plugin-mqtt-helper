@@ -1,0 +1,68 @@
+{
+  "name": "mojo-plugin-mqtt-helper",
+  "version": "0.2.1",
+  "description": "Adds an MQTT client helper to mojo.js",
+  "keywords": [
+    "mojojs",
+    "mqtt",
+    "iot"
+  ],
+  "type": "module",
+  "author": "Daniel Mantovani <dmanto@cpan.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmanto/mojo-plugin-mqtt-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dmanto/mojo-plugin-mqtt-helper/issues"
+  },
+  "scripts": {
+    "build": "npx tsc --build ./",
+    "build:clean": "npm run clean && npm run build",
+    "build:coverage": "npm run build && npm run coverage",
+    "build:lint": "npm run build && npm run lint",
+    "build:node": "npm run build && node",
+    "build:test": "npm run build && npm test",
+    "build:watch": "npm run build -- --watch",
+    "clean": "rm -rf tsconfig.tsbuildinfo lib",
+    "coverage": "c8 tap --no-coverage test/*.js",
+    "coverage:ci": "c8 --reporter lcovonly tap --no-coverage test/*.js",
+    "lint": "eslint \"test/*.js\" \"src/**/*.ts\" \"src/*.ts\"",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublishOnly": "npm run build",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:patch": "npm version patch && npm publish",
+    "test": "tap --no-coverage test/*.js"
+  },
+  "exports": "./lib/mojo-plugin-mqtt-helper.js",
+  "types": "./lib/mojo-plugin-mqtt-helper.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "devDependencies": {
+    "@types/busboy": "^1.5.0",
+    "@types/node": "^18.8.5",
+    "@types/stack-utils": "^2.0.1",
+    "@types/tap": "^15.0.7",
+    "@types/tough-cookie": "^4.0.2",
+    "@types/ws": "^8.5.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "c8": "^7.12.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "tap": "^16.3.0",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "dependencies": {
+    "@mojojs/core": "^1.6.0",
+    "async-mqtt": "^2.6.3"
+  }
+}
