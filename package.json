@@ -33,7 +33,7 @@
     "prepublishOnly": "npm run build",
     "publish:minor": "npm version minor && npm publish",
     "publish:patch": "npm version patch && npm publish",
-    "test": "tap --no-coverage test/*.js && tsd -f test"
+    "test": "tap --no-coverage test/*.js"
   },
   "exports": "./lib/mojo-plugin-mqtt-helper.js",
   "types": "./lib/mojo-plugin-mqtt-helper.d.ts",
