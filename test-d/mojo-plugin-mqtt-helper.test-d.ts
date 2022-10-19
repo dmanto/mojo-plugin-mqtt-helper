@@ -7,4 +7,4 @@ const app = mojo();
 app.plugin(mqttPlugin);
 const ctx = app.newMockContext();
 expectType<Promise<AsyncMqttClient>>(ctx.mqttClient());
-expectError<Promise<AsyncMqttClient>>(ctx.mqttClient('mqtt://test.mosquitto.org', {dummy: 1}, true));
+expectType<Promise<AsyncMqttClient>>(ctx.mqttClient('mqtt://test.mosquitto.org', {clientId: 'someClientId'}, true));
