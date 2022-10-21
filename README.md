@@ -5,9 +5,14 @@
 [![npm](https://img.shields.io/npm/v/mojo-plugin-mqtt-helper.svg)](https://www.npmjs.com/package/mojo-plugin-mqtt-helper)
 
 
-A mojo.js plugin to add an MQTT helper.
+A mojo.js plugin to add an MQTT helper, wrapped over async-mqtt module.
 
-```js
+## API
+
+The API is the same as [async-mqtt](https://github.com/mqttjs/async-mqtt#api) client.
+## Example
+
+```javascript
 import mojo from '@mojojs/core';
 import mqttPlugin from 'mojo-plugin-mqtt-helper';
 
@@ -25,6 +30,11 @@ app.get('/', async ctx => {
 });
 app.start();
 ```
+
+## More examples
+
+This distribution also contains an example implementing a simple websockets based chat room:
+[chat](https://github.com/dmanto/mojo-plugin-mqtt-helper/tree/main/examples/chat.js).
 
 ## Installation
 
