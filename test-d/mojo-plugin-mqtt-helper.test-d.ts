@@ -1,7 +1,7 @@
 import type {AsyncMqttClient} from 'async-mqtt';
 import mqttPlugin from '../lib/mojo-plugin-mqtt-helper';
 import mojo from '@mojojs/core';
-import {expectType, expectError} from 'tsd';
+import {expectType} from 'tsd';
 
 const app = mojo();
 app.plugin(mqttPlugin);
