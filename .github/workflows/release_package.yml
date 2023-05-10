@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       release-type:
-        description: 'Release type (one of): patch, minor, major, prepatch, preminor, premajor, prerelease'
+        description: "Release type (one of): patch, minor, major, prepatch, preminor, premajor, prerelease"
         required: true
 jobs:
   release:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org/
-          node-version: '19'
+          node-version: "19"
 
       # Install dependencies (required by Run tests step)
       - name: Install dependencies
@@ -26,9 +26,7 @@ jobs:
 
       # Tests
       - name: Run tests
-        run: npm run build:test
-        env:
-          TEST_ONLINE: mqtt://test.mosquitto.org
+        run: npm run build:oltest
       # Configure Git
       - name: Git configuration
         run: |

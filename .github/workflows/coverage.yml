@@ -14,8 +14,6 @@ jobs:
         run: npm run build
       - name: npm run coverage:ci
         run: npm run coverage:ci
-        env:
-          TEST_ONLINE: mqtt://test.mosquitto.org
       - name: coveralls
         uses: coverallsapp/github-action@master
         with:
