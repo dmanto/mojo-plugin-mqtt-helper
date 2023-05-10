@@ -6,11 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+## 0.2.5 - 2023-05-10
 ### Added
 - update dependencies
 - use rimraf, npm-run-all and cross-env modules to make npm scripts more portable
 - use aedes module to get a local running server, stop using online public server for testing
 - node v16, v18 and v20 tested
+
 ## 0.2.4 - 2022-10-21
 ### Added
 - Add mqtt based chat example.
