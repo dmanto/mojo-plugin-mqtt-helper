@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16.x, 17.x, 18.x, 19.x]
+        node-version: [16.x, 17.x, 18.x, 19.x, 20.x]
         os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v1
@@ -19,7 +19,5 @@ jobs:
         run: npm i
       - name: npm run build
         run: npm run build
-      - name: npm test
-        run: npm test
-        env:
-          TEST_ONLINE: mqtt://test.mosquitto.org
+      - name: online test
+        run: npm run oltest
