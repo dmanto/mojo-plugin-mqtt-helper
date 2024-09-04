@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- runs latest versions of prettier and eslint
+- node 22.x added to matrix tests
+
+### Fixed
+
+- issue with coverage:ci tests, running on node 22 fixes it
+- wrong setting on env var for online tests
+
 ## 0.2.5 - 2023-05-10
 
 ### Added
