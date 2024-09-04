@@ -25,6 +25,7 @@
     "build:test": "run-s build test",
     "build:oltest": "run-s build oltest",
     "build:watch": "npm run build -- --watch",
+    "build:inspect": "run-s build \"inspect {1}\" --",
     "clean": "rimraf tsconfig.tsbuildinfo lib",
     "coverage": "c8 tap  --disable-coverage --allow-empty-coverage test/*.js",
     "coverage:ci": "run-p -r mqtt-test-server mqtt-test-coverage:ci",
@@ -39,6 +40,8 @@
     "prepublishOnly": "npm run build",
     "publish:minor": "npm version minor && npm publish",
     "publish:patch": "npm version patch && npm publish",
+    "inspect": "run-p -r mqtt-test-server \"inspect-mqtt-test-client {1}\" --",
+    "inspect-mqtt-test-client": "cross-env MQTT_TEST_ONLINE=mqtt://localhost:61883 node --inspect",
     "test": "tap  --disable-coverage --allow-empty-coverage test/*.js"
   },
   "exports": "./lib/mojo-plugin-mqtt-helper.js",

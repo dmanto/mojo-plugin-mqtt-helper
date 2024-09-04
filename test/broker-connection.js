@@ -13,7 +13,7 @@ t.test('BrokerConnection', skip, async t => {
   app.plugin(mqttPlugin);
 
   app.get('/subscribe-n-wait', async ctx => {
-    const client = await ctx.mqttClient(process.env.TEST_ONLINE);
+    const client = await ctx.mqttClient(process.env.MQTT_TEST_ONLINE);
     await client.subscribe(fooTopic);
     client.on('message', async (topic, message) => {
       await ctx.render({text: `topic: ${topic}, message: ${message}`});
