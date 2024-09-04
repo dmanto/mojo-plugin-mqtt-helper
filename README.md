@@ -4,12 +4,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/dmanto/mojo-plugin-mqtt-helper/badge.svg?branch=main)](https://coveralls.io/github/dmanto/mojo-plugin-mqtt-helper?branch=main)
 [![npm](https://img.shields.io/npm/v/mojo-plugin-mqtt-helper.svg)](https://www.npmjs.com/package/mojo-plugin-mqtt-helper)
 
-
 A mojo.js plugin to add an MQTT helper, wrapped over async-mqtt module.
 
 ## API
 
 The API is the same as [async-mqtt](https://github.com/mqttjs/async-mqtt#api) client.
+
 ## Example
 
 ```javascript

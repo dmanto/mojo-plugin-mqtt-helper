@@ -2,7 +2,8 @@ import mqttPlugin from '../lib/mojo-plugin-mqtt-helper.js';
 import mojo from '@mojojs/core';
 import t from 'tap';
 
-const skip = process.env.TEST_ONLINE === undefined ? {skip: 'set TEST_ONLINE to broker url to enable this test'} : {};
+const skip =
+  process.env.MQTT_TEST_ONLINE === undefined ? {skip: 'set MQTT_TEST_ONLINE to broker url to enable this test'} : {};
 
 t.test('BrokerConnection', skip, async t => {
   // Isolate tests

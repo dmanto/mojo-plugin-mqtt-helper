@@ -1,6 +1,5 @@
 import type {MojoApp} from '@mojojs/core/lib/types';
-import type {IClientOptions, AsyncMqttClient} from 'async-mqtt';
-import pkg from 'async-mqtt';
+import pkg, {type AsyncMqttClient, type IClientOptions} from 'async-mqtt';
 const {connectAsync} = pkg;
 
 /**

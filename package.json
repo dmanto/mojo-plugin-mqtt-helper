@@ -26,18 +26,20 @@
     "build:oltest": "run-s build oltest",
     "build:watch": "npm run build -- --watch",
     "clean": "rimraf tsconfig.tsbuildinfo lib",
-    "coverage": "c8 tap --no-coverage test/*.js",
+    "coverage": "c8 tap  --disable-coverage --allow-empty-coverage test/*.js",
     "coverage:ci": "run-p -r mqtt-test-server mqtt-test-coverage:ci",
+    "prelint": "prettier -c --cache .",
     "lint": "eslint \"test/*.js\"  \"test-d/*.test-d.ts\" \"src/**/*.ts\" \"src/*.ts\" \"examples/**/*.js\"",
+    "prelint:fix": "prettier -w --cache .",
     "lint:fix": "npm run lint -- --fix",
     "oltest": "run-p -r mqtt-test-server mqtt-test-client",
     "mqtt-test-server": "node test/support/mqtt-server.js",
-    "mqtt-test-client": "cross-env MQTT_TEST_ONLINE=mqtt://localhost:61883 tap --no-coverage test/*.js",
-    "mqtt-test-coverage:ci": "cross-env MQTT_TEST_ONLINE=mqtt://localhost:61883 c8 --reporter lcovonly tap --no-coverage test/*.js",
+    "mqtt-test-client": "cross-env MQTT_TEST_ONLINE=mqtt://localhost:61883 tap  --disable-coverage --allow-empty-coverage test/*.js",
+    "mqtt-test-coverage:ci": "cross-env MQTT_TEST_ONLINE=mqtt://localhost:61883 c8 --reporter lcovonly tap  --disable-coverage --allow-empty-coverage test/*.js",
     "prepublishOnly": "npm run build",
     "publish:minor": "npm version minor && npm publish",
     "publish:patch": "npm version patch && npm publish",
-    "test": "tap --no-coverage test/*.js"
+    "test": "tap  --disable-coverage --allow-empty-coverage test/*.js"
   },
   "exports": "./lib/mojo-plugin-mqtt-helper.js",
   "types": "./lib/mojo-plugin-mqtt-helper.d.ts",
@@ -45,33 +47,27 @@
     "lib/"
   ],
   "devDependencies": {
-    "@types/busboy": "^1.5.0",
-    "@types/node": "^20.1.1",
-    "@types/stack-utils": "^2.0.1",
-    "@types/tap": "^15.0.8",
-    "@types/tough-cookie": "^4.0.2",
-    "@types/ws": "^8.5.4",
-    "@typescript-eslint/eslint-plugin": "^5.59.5",
-    "aedes": "^0.49.0",
-    "c8": "^7.13.0",
+    "@eslint/js": "^9.9.1",
+    "@typescript-eslint/parser": "^8.4.0",
+    "aedes": "^0.51.3",
+    "c8": "^10.1.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint": "^9.9.1",
+    "eslint-plugin-import-x": "^4.2.0",
+    "globals": "^15.9.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.8",
-    "rimraf": "^5.0.0",
-    "tap": "^16.3.4",
-    "tsd": "^0.28.1",
-    "typescript": "^5.0.4"
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "tap": "^21.0.1",
+    "tsd": "^0.31.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.4.0"
   },
   "engines": {
     "node": ">= 16"
   },
   "dependencies": {
-    "@mojojs/core": "^1.24.3",
+    "@mojojs/core": "^1.26.6",
     "async-mqtt": "^2.6.3"
   }
 }
