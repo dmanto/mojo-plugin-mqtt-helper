@@ -14,12 +14,13 @@ t.test('BrokerConnection', skip, async t => {
 
   app.get('/subscribe-n-wait', async ctx => {
     const client = await ctx.mqttClient(process.env.MQTT_TEST_ONLINE);
-    await client.subscribe(fooTopic);
+    await client.subscribeAsync(fooTopic);
     client.on('message', async (topic, message) => {
       await ctx.render({text: `topic: ${topic}, message: ${message}`});
-      await client.end();
+      await client.unsubscribeAsync(fooTopic);
+      await client.endAsync();
     });
-    await client.publish(fooTopic, 'It works!');
+    await client.publishAsync(fooTopic, 'It works!');
   });
 
   const ua = await app.newTestUserAgent({tap: t});
