@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Breaking Changes
+
+- Switched from `async-mqtt` to `mqtt` module for improved maintenance and performance.
+- Updated method names to use asynchronous versions:
+- Replace `subscribe()`, `publish()`, `unsubscribe()`, and `end()` with `await subscribeAsync()`, `await publishAsync()`, `await unsubscribeAsync()`, and `await endAsync()` respectively.
+  - The previous methods are blocking in the `mqtt` module.
+
 ### Added
 
 - runs latest versions of prettier and eslint
