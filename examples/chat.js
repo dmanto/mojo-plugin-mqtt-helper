@@ -12,12 +12,13 @@ app
       client.on('message', async (_topic, message) => {
         await ws.send(message.toString());
       });
-      await client.subscribe('mojojs/mojochat/#');
+      await client.subscribeAsync('mojojs/mojochat/#');
       for await (const data of ws) {
-        await client.publish('mojojs/mojochat/channel', data);
+        await client.publishAsync('mojojs/mojochat/channel', data);
       }
       ws.on('close', async () => {
-        await client.end();
+        await client.unsubscribeAsync('mojojs/mojochat/#');
+        await client.endAsync();
       });
     });
   })

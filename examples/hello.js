@@ -8,9 +8,10 @@ app.get('/', async ctx => {
   const client = await ctx.mqttClient('mqtt://test.mosquitto.org');
   client.on('message', async (topic, message) => {
     await ctx.render({text: `Received message on topic ${topic}: ${message}`});
-    await client.end();
+    await client.unsubscribeAsync('mojojs/test/#');
+    await client.endAsync();
   });
-  await client.subscribe('mojojs/test/#');
-  await client.publish('mojojs/test/hello/Channel', 'Hello world!');
+  await client.subscribeAsync('mojojs/test/#');
+  await client.publishAsync('mojojs/test/hello/Channel', 'Hello world!');
 });
 app.start();

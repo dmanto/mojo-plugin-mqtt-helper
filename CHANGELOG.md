@@ -7,14 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Breaking Changes
+
+- Switched from `async-mqtt` to `mqtt` module for improved maintenance and performance.
+- Updated method names to use asynchronous versions:
+- Replace `subscribe()`, `publish()`, `unsubscribe()`, and `end()` with `await subscribeAsync()`, `await publishAsync()`, `await unsubscribeAsync()`, and `await endAsync()` respectively.
+  - The previous methods are blocking in the `mqtt` module.
+
 ## 0.3.0 - 2024-09-04
 ### Added
 - runs latest versions of prettier and eslint
 - node 22.x added to matrix tests
+- uses mqtt module instead of async-mqtt
 
 ### Fixed
 - issue with coverage:ci tests, running on node 22 fixes it
 - wrong setting on env var for online tests
+- does not depend on inflight module anymore (avoids potencial memory leaks)
 
 ## 0.2.5 - 2023-05-10
 ### Added

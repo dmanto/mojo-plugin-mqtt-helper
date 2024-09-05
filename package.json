@@ -71,6 +71,6 @@
   },
   "dependencies": {
     "@mojojs/core": "^1.26.6",
-    "async-mqtt": "^2.6.3"
+    "mqtt": "^5.10.1"
   }
 }
