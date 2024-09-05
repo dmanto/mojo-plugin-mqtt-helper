@@ -10,8 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Breaking Changes
 
 - Switched from `async-mqtt` to `mqtt` module for improved maintenance and performance.
-- Updated method names to use asynchronous versions:
-- Replace `subscribe()`, `publish()`, `unsubscribe()`, and `end()` with `await subscribeAsync()`, `await publishAsync()`, `await unsubscribeAsync()`, and `await endAsync()` respectively.
+- Updated method names to use asynchronous versions, see following list:
+- Method `subscribe()` is now blocking, should be replaced by `await subscribeAsync()`.
+- Method `unsubscribe()` is now blocking, should be replaced by `await unsubscribeAsync()`.
+- Method `publish()` is now blocking, should be replaced by `await publishAsync()`.
+- Method `end()` is now blocking, should be replaced by `await endAsync()`.
 - The previous methods are blocking in the `mqtt` module.
 
 ## 0.3.0 - 2024-09-04
