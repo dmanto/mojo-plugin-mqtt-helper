@@ -4,11 +4,18 @@
 [![Coverage Status](https://coveralls.io/repos/github/dmanto/mojo-plugin-mqtt-helper/badge.svg?branch=main)](https://coveralls.io/github/dmanto/mojo-plugin-mqtt-helper?branch=main)
 [![npm](https://img.shields.io/npm/v/mojo-plugin-mqtt-helper.svg)](https://www.npmjs.com/package/mojo-plugin-mqtt-helper)
 
-A mojo.js plugin to add an MQTT helper, wrapped over async-mqtt module.
+A mojo.js plugin to add an MQTT helper, wrapped over mqtt module.
+
+## Important notes for existing users
+
+**v0.4.0** (09/2024)
+
+- The module does not use `async-mqtt` anymore, and just returns an MqttClient Object
+- As a result, methods `subscribe`, `unsuscribe`, `publish` and `end` are now blocking methods, so you want to use `subscribeAsync`, `unsuscribeAsync`, `publishAsync` and `endAsync` instead (please see the examples).
 
 ## API
 
-The API is the same as [async-mqtt](https://github.com/mqttjs/async-mqtt#api) client.
+The API is the same as [mqtt](https://github.com/mqttjs/mqtt#api) client.
 
 ## Example
 
@@ -23,10 +30,10 @@ app.get('/', async ctx => {
   const client = await ctx.mqttClient('mqtt://test.mosquitto.org');
   client.on('message', async (topic, message) => {
     await ctx.render({text: `Received message on topic ${topic}: ${message}`});
-    await client.end();
+    await client.endAsync();
   });
-  await client.subscribe('mojojs/test/#');
-  await client.publish('mojojs/test/hello/Channel', 'Hello world!');
+  await client.subscribeAsync('mojojs/test/#');
+  await client.publishAsync('mojojs/test/hello/Channel', 'Hello world!');
 });
 app.start();
 ```
