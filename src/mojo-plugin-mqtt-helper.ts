@@ -12,7 +12,7 @@ export default function mqttPlugin(app: MojoApp) {
   app.addHelper('mqttClient', (_ctx, ...args: ConnectParameters) => {
     const [brokerUrl, opts, allowRetries] = args;
     return connectAsync(
-      brokerUrl !== undefined ? brokerUrl : 'mqtt://localhost:1833',
+      brokerUrl !== undefined ? brokerUrl : 'mqtt://localhost:1883',
       opts !== undefined ? opts : {},
       allowRetries !== undefined ? allowRetries : false
     );
