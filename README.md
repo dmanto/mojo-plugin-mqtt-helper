@@ -45,8 +45,10 @@ This distribution also contains an example implementing a simple websockets base
 
 ## Installation
 
-All you need is Node.js 16.0.0 (or newer).
+All you need is Node.js 18.0.0 (or newer).
+
+This is a peer-dependency plugin — your project must already have `@mojojs/core` and `mqtt` installed.
 
 ```
-$ npm install mojo-plugin-mqtt-helper
+$ pnpm add mojo-plugin-mqtt-helper
 ```

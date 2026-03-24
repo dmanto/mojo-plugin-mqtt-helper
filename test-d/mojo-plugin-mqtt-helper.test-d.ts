@@ -8,4 +8,4 @@ app.plugin(mqttPlugin);
 const ctx = app.newMockContext();
 expectType<Promise<MqttClient>>(ctx.mqttClient());
 expectType<Promise<MqttClient>>(ctx.mqttClient('mqtt://test.mosquitto.org'));
-expectType<Promise<MqttClient>>(ctx.mqttClient('mqtt://test.mosquitto.org', {clientId: 'someClientId'}, true));
+expectType<Promise<MqttClient>>(ctx.mqttClient('mqtt://test.mosquitto.org', {clientId: 'someClientId'}));

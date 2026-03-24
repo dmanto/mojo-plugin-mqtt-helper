@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.5.0 - 2026-03-24
+
+### Changed
+
+- `@mojojs/core` and `mqtt` moved from `dependencies` to `peerDependencies`
+- Declaration merging now augments `@mojojs/core` (public module) instead of `@mojojs/core/lib/types`
+- `engines.node` bumped to `>= 18`
+- Build and publish scripts migrated from `npm` to `pnpm`
+- Test suite migrated from `tap` to `node:test`
+- `npm-run-all` replaced with maintained fork `npm-run-all2`
+
+### Removed
+
+- Dead `allowRetries` parameter from `mqttClient` helper (`connectAsync` in mqtt 5.x accepts only two arguments)
+
+### Fixed
+
+- Race condition in broker-connection test: `ctx.render` is now called after awaiting the MQTT message, not inside an event callback
+
 ## 0.4.2 - 2024-09-06
 
 ### Fixed
