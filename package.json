@@ -32,7 +32,7 @@
     "prelint": "prettier -c --cache .",
     "lint": "eslint \"test/*.js\" \"test-d/*.test-d.ts\" \"src/**/*.ts\" \"src/*.ts\" \"examples/**/*.js\"",
     "prelint:fix": "prettier -w --cache .",
-    "lint:fix": "pnpm run lint -- --fix",
+    "lint:fix": "pnpm run lint",
     "tsd": "tsd",
     "oltest": "run-p -r mqtt-test-server mqtt-test-client",
     "mqtt-test-server": "node test/support/mqtt-server.js",
