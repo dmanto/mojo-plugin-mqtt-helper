@@ -18,7 +18,7 @@
     "url": "https://github.com/dmanto/mojo-plugin-mqtt-helper/issues"
   },
   "scripts": {
-    "build": "npx tsc --build ./",
+    "build": "pnpm exec tsc --build ./",
     "build:clean": "run-s clean build",
     "build:coverage": "run-s build coverage",
     "build:lint": "run-s build lint",

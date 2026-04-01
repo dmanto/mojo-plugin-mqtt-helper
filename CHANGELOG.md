@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.5.1 - 2026-04-01
+
+### Changed
+
+- Migrated to `pnpm` lockfile with `lockfile=true` enforced in `.npmrc`
+- Fixed `lint:fix` script
+
+### Security
+
+- Bumped `brace-expansion` from 1.1.12 to 1.1.13
+
 ## 0.5.0 - 2026-03-24
 
 ### Changed
