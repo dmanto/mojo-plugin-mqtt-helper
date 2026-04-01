@@ -12,6 +12,13 @@ test('BrokerConnection', skip, async t => {
   const app = mojo();
   app.plugin(mqttPlugin);
 
+  app.get('/disposable', async ctx => {
+    const client = await ctx.mqttClient(process.env.MQTT_TEST_ONLINE);
+    const hasDispose = typeof client[Symbol.asyncDispose] === 'function';
+    await client[Symbol.asyncDispose]();
+    await ctx.render({text: `hasDispose: ${hasDispose}, disconnected: ${client.disconnected}`});
+  });
+
   app.get('/subscribe-n-wait', async ctx => {
     const client = await ctx.mqttClient(process.env.MQTT_TEST_ONLINE);
     await client.subscribeAsync(fooTopic);
@@ -27,6 +34,10 @@ test('BrokerConnection', skip, async t => {
 
   const ua = await app.newTestUserAgent();
   t.after(() => ua.stop());
+
+  await t.test('AsyncDisposable symbol is present', async () => {
+    (await ua.getOk('/disposable')).statusIs(200).bodyIs('hasDispose: true, disconnected: true');
+  });
 
   await t.test('Single message', async () => {
     (await ua.getOk('/subscribe-n-wait')).statusIs(200).bodyIs(`topic: ${fooTopic}, message: It works!`);

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.6.0 - 2026-04-01
+
+### Added
+
+- `mqttClient` helper now returns a `DisposableMqttClient` (`MqttClient & AsyncDisposable`), enabling `await using client = await ctx.mqttClient(...)` — disposal calls `endAsync()` for a clean graceful disconnect
+
+### Changed
+
+- `engines.node` bumped to `>= 20` (required for native `Symbol.asyncDispose` support)
+
 ## 0.5.1 - 2026-04-01
 
 ### Changed
