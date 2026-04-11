@@ -38,6 +38,20 @@ app.get('/', async ctx => {
 app.start();
 ```
 
+Using `await using` for automatic cleanup on scope exit (Node.js 20+, TypeScript 5.2+):
+
+```javascript
+app.get('/', async ctx => {
+  await using client = await ctx.mqttClient('mqtt://test.mosquitto.org');
+  client.on('message', async (topic, message) => {
+    await ctx.render({text: `Received message on topic ${topic}: ${message}`});
+  });
+  await client.subscribeAsync('mojojs/test/#');
+  await client.publishAsync('mojojs/test/hello/Channel', 'Hello world!');
+  // client.endAsync() is called automatically when the handler returns
+});
+```
+
 ## More examples
 
 This distribution also contains an example implementing a simple websockets based chat room:
@@ -45,7 +59,7 @@ This distribution also contains an example implementing a simple websockets base
 
 ## Installation
 
-All you need is Node.js 18.0.0 (or newer).
+All you need is Node.js 20.0.0 (or newer).
 
 This is a peer-dependency plugin — your project must already have `@mojojs/core` and `mqtt` installed.
 

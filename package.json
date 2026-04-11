@@ -1,6 +1,6 @@
 {
   "name": "mojo-plugin-mqtt-helper",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Adds an MQTT client helper to mojo.js",
   "keywords": [
     "mojojs",
@@ -18,7 +18,7 @@
     "url": "https://github.com/dmanto/mojo-plugin-mqtt-helper/issues"
   },
   "scripts": {
-    "build": "npx tsc --build ./",
+    "build": "pnpm exec tsc --build ./",
     "build:clean": "run-s clean build",
     "build:coverage": "run-s build coverage",
     "build:lint": "run-s build lint",
@@ -67,7 +67,10 @@
     "typescript-eslint": "^8.4.0"
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">= 20"
+  },
+  "dependencies": {
+    "mqtt-pool": "^0.1.2"
   },
   "peerDependencies": {
     "@mojojs/core": "^1.26.6",
