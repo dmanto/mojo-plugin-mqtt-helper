@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.7.0 - 2026-04-11
+
+### Added
+
+- Optional connection pool support via `pool` option: `app.plugin(mqttPlugin, {pool: {brokerUrl, ...MqttPoolOptions}})`
+- `ctx.mqttPool()` helper — returns the `MqttPool` instance for `publish()`, `acquire()`, `receive()`, `request()`
+- `mqtt-pool` added as a runtime dependency
+
+### Changed
+
+- Pool is initialised via `server:start` hook (not `app:start`) — CLI commands never spin up warm connections they don't use
+- `ctx.mqttClient()` is unchanged — WebSocket handlers and CLI services continue to work as before
+
 ## 0.6.0 - 2026-04-01
 
 ### Added
