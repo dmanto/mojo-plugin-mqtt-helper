@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.7.1 - 2026-09-30
+
+### Changed
+
+- Upgraded dev dependencies (ESLint 10, TypeScript 6.0, Aedes 1.x, c8 12, cross-env 10, npm-run-all2 9)
+- Switched `moduleResolution` to `bundler` (`node` was removed in newer TypeScript)
+- Test MQTT broker migrated to the Aedes 1.x `createBroker()` API and now shuts down cleanly on SIGTERM
+
 ## 0.7.0 - 2026-04-11
 
 ### Added
