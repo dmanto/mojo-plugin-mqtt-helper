@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.8.1 - 2026-09-30
+
+### Changed
+
+- README: documented `ctx.mqttPool()` and the `pool` option, `ctx.mqttClient()` defaults, the Node.js 24 requirement and peer dependency installation
+
 ## 0.8.0 - 2026-09-30
 
 ### Changed
