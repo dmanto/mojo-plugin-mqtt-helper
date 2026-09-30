@@ -10,7 +10,7 @@ jobs:
           version: latest
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
       - name: pnpm install
         run: pnpm install

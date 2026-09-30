@@ -67,7 +67,7 @@
     "typescript-eslint": "^8.71.0"
   },
   "engines": {
-    "node": ">= 20"
+    "node": ">= 24"
   },
   "dependencies": {
     "mqtt-pool": "^0.1.2"

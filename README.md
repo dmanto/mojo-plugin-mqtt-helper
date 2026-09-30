@@ -38,7 +38,7 @@ app.get('/', async ctx => {
 app.start();
 ```
 
-Using `await using` for automatic cleanup on scope exit (Node.js 20+, TypeScript 5.2+):
+Using `await using` for automatic cleanup on scope exit (Node.js 24+, TypeScript 5.2+):
 
 ```javascript
 app.get('/', async ctx => {
@@ -59,7 +59,7 @@ This distribution also contains an example implementing a simple websockets base
 
 ## Installation
 
-All you need is Node.js 20.0.0 (or newer).
+All you need is Node.js 24.0.0 (or newer).
 
 This is a peer-dependency plugin — your project must already have `@mojojs/core` and `mqtt` installed.
 
