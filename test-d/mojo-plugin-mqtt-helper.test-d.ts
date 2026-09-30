@@ -9,7 +9,9 @@ app.plugin(mqttPlugin);
 const ctx = app.newMockContext();
 expectType<Promise<MqttClient & AsyncDisposable>>(ctx.mqttClient());
 expectType<Promise<MqttClient & AsyncDisposable>>(ctx.mqttClient('mqtt://test.mosquitto.org'));
-expectType<Promise<MqttClient & AsyncDisposable>>(ctx.mqttClient('mqtt://test.mosquitto.org', {clientId: 'someClientId'}));
+expectType<Promise<MqttClient & AsyncDisposable>>(
+  ctx.mqttClient('mqtt://test.mosquitto.org', {clientId: 'someClientId'})
+);
 
 const appWithPool = mojo();
 appWithPool.plugin(mqttPlugin, {pool: {brokerUrl: 'mqtt://localhost:1883', min: 2, max: 5}});

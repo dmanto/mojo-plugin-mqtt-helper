@@ -51,20 +51,20 @@
     "lib/"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "@typescript-eslint/parser": "^8.4.0",
-    "aedes": "^0.51.3",
-    "c8": "^10.1.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.9.1",
-    "eslint-plugin-import-x": "^4.2.1",
-    "globals": "^15.9.0",
-    "npm-run-all2": "^8.0.4",
-    "prettier": "^3.3.3",
+    "@eslint/js": "^10.0.1",
+    "@typescript-eslint/parser": "^8.71.0",
+    "aedes": "^1.2.0",
+    "c8": "^12.0.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "globals": "^17.12.0",
+    "npm-run-all2": "^9.0.3",
+    "prettier": "^3.9.9",
     "rimraf": "^6.0.1",
-    "tsd": "^0.31.2",
-    "typescript": "^5.5.4",
-    "typescript-eslint": "^8.4.0"
+    "tsd": "^0.33.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0"
   },
   "engines": {
     "node": ">= 20"

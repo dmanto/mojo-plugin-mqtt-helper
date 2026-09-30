@@ -6,7 +6,7 @@
     "sourceMap": true,
     "declaration": true,
     "incremental": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "noErrorTruncation": true,
     "strict": true

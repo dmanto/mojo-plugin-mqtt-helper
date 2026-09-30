@@ -5,13 +5,13 @@ import {createMqttPool, type MqttPool, type MqttPoolOptions} from 'mqtt-pool';
 type ConnectParameters = [brokerUrl?: string, opts?: IClientOptions];
 type DisposableMqttClient = MqttClient & AsyncDisposable;
 
-export type MqttPluginOptions = {
+export interface MqttPluginOptions {
   /**
    * If provided, initialises a warm connection pool on server start.
    * Enables `ctx.mqttPool()`. Only available in HTTP server context, not CLI.
    */
   pool?: {brokerUrl: string} & MqttPoolOptions;
-};
+}
 
 /**
  * mqttPlugin.
@@ -37,7 +37,7 @@ export default function mqttPlugin(app: MojoApp, opts: MqttPluginOptions = {}) {
       if (pool !== undefined) await pool.end();
     });
 
-    app.addHelper('mqttPool', (_ctx) => {
+    app.addHelper('mqttPool', _ctx => {
       if (pool === undefined) throw new Error('mqttPool: pool not available in CLI context');
       return pool;
     });
