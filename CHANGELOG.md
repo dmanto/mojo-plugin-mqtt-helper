@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.8.0 - 2026-09-30
+
 ### Changed
 
 - Minimum Node.js version raised to 24 (`engines`), CI now tests Node 24 and 26
