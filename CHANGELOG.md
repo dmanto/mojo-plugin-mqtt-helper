@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Minimum Node.js version raised to 24 (`engines`), CI now tests Node 24 and 26
 
+### Security
+
+- Refreshed transitive dependencies to patched versions: `fast-uri`, `ip-address`, `js-yaml`, `brace-expansion`, `ws`, `form-data`, `@humanfs/node`
+
 ## 0.7.1 - 2026-09-30
 
 ### Changed
