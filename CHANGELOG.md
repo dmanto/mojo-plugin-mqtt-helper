@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.8.2 - 2026-11-03
+
 ### Changed
 
 - Release workflow now publishes to npm with trusted publishing (OIDC) and provenance, pushes the release commit and tag before publishing, and uses current action versions
