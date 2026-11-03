@@ -71,8 +71,9 @@ jobs:
           echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
           echo "NEW_VERSION=${NEW_TAG#v}" >> "$GITHUB_ENV"
 
-      # Moves the "## Unreleased" entries under a new "## <version> - <date>" heading
-      # and saves them as the GitHub release notes. Fails if there are no entries.
+      # Saves the "## Unreleased" entries as the GitHub release notes; fails if there are none.
+      # For a stable release it also moves them under a new "## <version> - <date>" heading;
+      # prereleases leave CHANGELOG.md alone so the entries stay for the stable release.
       - name: Update changelog
         run: |
           export RELEASE_DATE=$(date -u +%F)
@@ -84,7 +85,8 @@ jobs:
             open my $fh, ">", "$ENV{RUNNER_TEMP}/release-notes.md" or die $!;
             print $fh "$notes\n";
             close $fh;
-            s/^## Unreleased[ \t]*\n/## Unreleased\n\n## $ENV{NEW_VERSION} - $ENV{RELEASE_DATE}\n/m;
+            s/^## Unreleased[ \t]*\n/## Unreleased\n\n## $ENV{NEW_VERSION} - $ENV{RELEASE_DATE}\n/m
+              unless $ENV{PRERELEASE} eq "true";
           ' CHANGELOG.md
           pnpm exec prettier -w CHANGELOG.md package.json
 
