@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.9.0 - 2026-11-04
+
 ### Changed
 
 - Added support for `@mojojs/core` 2.x, the peer dependency now accepts `^1.26.6 || ^2.0.0`
