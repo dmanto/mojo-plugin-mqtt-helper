@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+- Added support for `@mojojs/core` 2.x, the peer dependency now accepts `^1.26.6 || ^2.0.0`
+- Tests now run against `@mojojs/core` 2.0 and `mqtt` 5.16 (added as dev dependencies)
+- Updated dev dependencies (eslint 10.14, typescript-eslint 8.72, prettier 3.9.10, globals 17.14, npm-run-all2 9.0.4)
+
 ## 0.8.2 - 2026-11-03
 
 ### Changed
